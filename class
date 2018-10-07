@@ -1,0 +1,99 @@
+<?php
+
+    include "./includes/header.php";
+
+?>
+
+
+        <!-- Left Panel -->
+
+<?php
+
+    include "./includes/left.php";
+
+?>
+    <?php
+
+    if(isset($_POST['submit'])){
+        
+        global $connection;
+        $sem = $_POST['class_sem'];
+        $des = $_POST['class_des'];
+        
+        $query = "insert into class (semester,description) values('{$sem}','{$des}')";
+        $insert_project = mysqli_query($connection,$query);
+        
+        
+        
+    }
+
+
+?>
+
+    <!-- Left Panel -->
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        <!-- Header-->
+        <?php
+
+            include "./includes/header_right.php";
+
+        ?>
+        <!-- Header-->
+
+        <div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Create Class</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content mt-3">
+
+             <form action="" method="post">
+                 
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputClassID">Class ID</label>
+              <input type="text" name="class_id" class="form-control" >
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputSemester">Semester</label>
+              <input type="text" name="class_sem" class="form-control" >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="upClass">Upload File</label>
+            <input type="file" name="class_up" class="form-control" >
+          </div>
+          <div class="form-group">
+            <label for="inputClassDes">Description</label>
+            <textarea class="form-control" name="class_des" rows="5" id="comment"></textarea>
+          </div>
+                 
+                 <input type="submit" class="btn btn-primary" value="Submit" name="submit">
+</form>
+    </div><!-- /#right-panel -->
+       
+    <!-- Right Panel -->
+
+<?php
+
+    include "./includes/footer.php";
+
+?>
